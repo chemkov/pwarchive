@@ -11,24 +11,37 @@ body{
     font-family:Arial, sans-serif;
     color:white;
     overflow-x:hidden;
+    background:#000;
 }
 
-/* Плавающий размытый фон */
+/* ЖЁЛТО-ЧЁРНЫЙ «жидкий» фон */
 body::before{
     content:"";
     position:fixed;
-    inset:-50%;
-    background:linear-gradient(45deg, #000000, #1a1a1a, #ffd000, #000000);
-    background-size:400% 400%;
-    animation:bgMove 20s ease infinite;
-    filter:blur(120px);
+    inset:-40%;
     z-index:-1;
+
+    background:
+      radial-gradient(circle at 30% 40%, #ffd000 0%, transparent 40%),
+      radial-gradient(circle at 70% 60%, #ffd000 0%, transparent 40%),
+      radial-gradient(circle at 50% 20%, #000 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, #000 0%, transparent 50%),
+      #000;
+
+    filter: blur(120px);
+    animation: liquidMove 18s ease-in-out infinite alternate;
 }
 
-@keyframes bgMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+@keyframes liquidMove{
+    0%{
+        transform: translate(0,0) scale(1);
+    }
+    50%{
+        transform: translate(-5%, 5%) scale(1.1);
+    }
+    100%{
+        transform: translate(5%, -5%) scale(1);
+    }
 }
 
 header{
@@ -85,8 +98,6 @@ header{
 
 <div class="grid">
 
-<!-- 20 карточек -->
-
 <a class="card" href="#" target="_blank">
     <div class="thumb">Превью видео</div>
     <div class="title">ТЕСТ</div>
@@ -106,8 +117,6 @@ header{
     <div class="thumb">Превью видео</div>
     <div class="title">ТЕСТ</div>
 </a>
-
-<!-- Скопируй этот блок ещё 4 раза чтобы стало 20 -->
 
 </div>
 
