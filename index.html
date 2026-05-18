@@ -14,43 +14,74 @@ body{
     background:#000;
 }
 
-/* ЖЁЛТО-ЧЁРНЫЙ «жидкий» фон */
+/* ЖИДКИЙ ЖЁЛТО-ЧЁРНЫЙ ФОН */
 body::before{
     content:"";
     position:fixed;
-    inset:-40%;
+    inset:-35%;
     z-index:-1;
 
     background:
-      radial-gradient(circle at 30% 40%, #ffd000 0%, transparent 40%),
-      radial-gradient(circle at 70% 60%, #ffd000 0%, transparent 40%),
-      radial-gradient(circle at 50% 20%, #000 0%, transparent 50%),
-      radial-gradient(circle at 20% 80%, #000 0%, transparent 50%),
-      #000;
+      radial-gradient(circle at 25% 35%, #ffd000 0%, transparent 35%),
+      radial-gradient(circle at 75% 65%, #ffd000 0%, transparent 35%),
+      radial-gradient(circle at 60% 20%, #000000 0%, transparent 55%),
+      radial-gradient(circle at 20% 85%, #000000 0%, transparent 55%),
+      #000000;
 
-    filter: blur(120px);
-    animation: liquidMove 18s ease-in-out infinite alternate;
+    filter: blur(140px) contrast(120%);
+    animation: liquidMove 35s ease-in-out infinite alternate;
 }
 
 @keyframes liquidMove{
-    0%{
-        transform: translate(0,0) scale(1);
-    }
-    50%{
-        transform: translate(-5%, 5%) scale(1.1);
-    }
-    100%{
-        transform: translate(5%, -5%) scale(1);
-    }
+    0%{ transform: translate(0%, 0%) scale(1); }
+    50%{ transform: translate(-6%, 4%) scale(1.12); }
+    100%{ transform: translate(6%, -4%) scale(1); }
 }
 
+/* APPLE GLASS HEADER */
 header{
-    text-align:center;
-    padding:20px;
-    font-size:28px;
-    backdrop-filter:blur(6px);
+    position:sticky;
+    top:20px;
+    margin:20px auto;
+    width:90%;
+    max-width:1100px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 22px;
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.06);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+    border:1px solid rgba(255,255,255,0.12);
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+
+    font-size:20px;
 }
 
+.nav-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.nav-btn{
+    padding:8px 14px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    cursor:pointer;
+    font-size:14px;
+}
+
+.nav-btn:hover{
+    background:rgba(255,255,255,0.18);
+}
+
+/* СЕТКА */
 .grid{
     display:grid;
     grid-template-columns:repeat(4, 1fr);
@@ -59,7 +90,7 @@ header{
 }
 
 .card{
-    background:rgba(30,30,30,0.7);
+    background:rgba(20,20,20,0.75);
     border-radius:14px;
     overflow:hidden;
     text-align:center;
@@ -77,7 +108,7 @@ header{
 .thumb{
     width:100%;
     height:160px;
-    background:#333;
+    background:#222;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -94,9 +125,18 @@ header{
 
 <body>
 
-<header>📺 Архив стримов</header>
+<header>
+    <div>📺 Архив стримов</div>
+    <div class="nav-buttons">
+        <div class="nav-btn">Кнопка 1</div>
+        <div class="nav-btn">Кнопка 2</div>
+        <div class="nav-btn">Кнопка 3</div>
+    </div>
+</header>
 
 <div class="grid">
+
+<!-- Карточки. Меняешь href и ТЕСТ -->
 
 <a class="card" href="#" target="_blank">
     <div class="thumb">Превью видео</div>
