@@ -1,113 +1,111 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Архив стримов</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #0f0f0f;
-    color: white;
+body{
+    margin:0;
+    background:#0f0f0f;
+    font-family:Arial, sans-serif;
+    color:white;
 }
-
-header {
-    padding: 20px;
-    text-align: center;
-    font-size: 26px;
-    background: #181818;
+header{
+    text-align:center;
+    padding:20px;
+    font-size:28px;
+    background:#181818;
 }
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 15px;
-    padding: 20px;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+    padding:20px;
 }
-
-.card {
-    background: #1e1e1e;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: 0.2s;
+.card{
+    background:#1e1e1e;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    padding-bottom:15px;
+    transition:0.2s;
 }
-
-.card:hover {
-    transform: scale(1.03);
+.card:hover{
+    transform:scale(1.03);
 }
-
-.card img {
-    width: 100%;
+.thumb{
+    width:100%;
+    height:160px;
+    background:#333;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#aaa;
 }
-
-.info {
-    padding: 10px;
+.title{
+    margin:12px 10px;
+    font-size:16px;
 }
-
-.title {
-    font-size: 16px;
-    margin-bottom: 10px;
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:6px;
+    background:#ff0000;
+    color:white;
+    cursor:pointer;
 }
-
-a button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: #ff0000;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-a button:hover {
-    background: #cc0000;
+button:hover{
+    background:#cc0000;
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-📺 Архив стримов
-</header>
+<header>📺 Архив стримов</header>
 
-<div class="container" id="list"></div>
+<div class="grid">
 
-<script>
+<!-- СКОПИРУЙ ЭТУ КАРТОЧКУ 20 РАЗ -->
 
-// 👉 СЮДА ДОБАВЛЯЕШЬ СТРИМЫ
-const streams = [
-    {
-        title: "Стрим #1 — смешные моменты",
-        video: "https://www.youtube.com/watch?v=VIDEO_ID1",
-        img: "https://img.youtube.com/vi/VIDEO_ID1/hqdefault.jpg"
-    },
-    {
-        title: "Стрим #2 — прохождение",
-        video: "https://www.youtube.com/watch?v=VIDEO_ID2",
-        img: "https://img.youtube.com/vi/VIDEO_ID2/hqdefault.jpg"
-    }
-];
+<div class="card">
+    <div class="thumb">Превью видео</div>
+    <div class="title">ТЕСТ</div>
+    <a href="#" target="_blank">
+        <button>Смотреть</button>
+    </a>
+</div>
 
-const list = document.getElementById("list");
+<div class="card">
+    <div class="thumb">Превью видео</div>
+    <div class="title">ТЕСТ</div>
+    <a href="#" target="_blank">
+        <button>Смотреть</button>
+    </a>
+</div>
 
-streams.forEach(s => {
-    list.innerHTML += `
-        <div class="card">
-            <img src="${s.img}">
-            <div class="info">
-                <div class="title">${s.title}</div>
-                <a href="${s.video}" target="_blank">
-                    <button>Смотреть</button>
-                </a>
-            </div>
-        </div>
-    `;
-});
+<div class="card">
+    <div class="thumb">Превью видео</div>
+    <div class="title">ТЕСТ</div>
+    <a href="#" target="_blank">
+        <button>Смотреть</button>
+    </a>
+</div>
 
-</script>
+<div class="card">
+    <div class="thumb">Превью видео</div>
+    <div class="title">ТЕСТ</div>
+    <a href="#" target="_blank">
+        <button>Смотреть</button>
+    </a>
+</div>
+
+<!-- ↑ Эти 4 уже есть. Просто вставь этот блок ещё 4 раза, чтобы стало 20 -->
+
+</div>
 
 </body>
 </html>
